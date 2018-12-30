@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_26_181738) do
+ActiveRecord::Schema.define(version: 2018_12_30_030200) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "post_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -30,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_12_26_181738) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "banner_image_url"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
