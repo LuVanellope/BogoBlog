@@ -1,6 +1,10 @@
----
 es:
   activerecord:
+    attributes:
+      post:
+        title: 'Título'
+        body: 'Contenido'
+        banner_image_url: 'URL de la imagen'
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"
