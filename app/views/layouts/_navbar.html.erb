@@ -1,24 +1,23 @@
-<nav class='navbar navbar-expand-md bg-light navbar-light'>
-  <!-- Brand -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <%= link_to 'The Bogo Blog', root_path, class:'btn btn-btn'  %>
-
-  <!-- Toggler/collapsibe Button -->
-  <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#collapsibleNavbar'>
-    <span class='navbar-toggler-icon'></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-
-  <!-- Navbar links -->
-  <div class='collapse navbar-collapse' id='collapsibleNavbar'>
-    <ul class='navbar-nav'>
-      <li class='nav-item'>
-        <a class='nav-link' href='#'>Link</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='#'>Link</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='#'>Link</a>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="text-info"> <%= current_user.email %> </li>
+        <li class="nav-item active">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <a class="nav-link" data-toggle="modal" data-target="#signUpModal"><span>Sign Up</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#logInModal">Log In</a>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

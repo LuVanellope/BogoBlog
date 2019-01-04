@@ -4,8 +4,13 @@
 <div class="container p-3">
   <div class="row">
     <div class="col-12 text-center">
-      <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-btn' %> |
-      <%= link_to 'Back', posts_path,  class:'btn btn-btn' %>
+      <% if user_signed_in? == @post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-btn' %> |
+        <%= link_to 'Delete', method: :destroy, class:'btn btn-danger', data: {confirm: 'Are you sure?'} %> |
+        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+      <%= link_to 'Back', posts_path,  class:'btn btn-btn' %> |
     </div>
   </div>
 </div>
@@ -14,12 +19,14 @@
   <div class="row">
     <div class="col-md-6">
       <div>
-        <img alt="Web Studio" class="img-fluid" src="<%= @post.banner_image_url %> " />
+        <img alt="Imgane" class="img-fluid" src="<%= @post.banner_image_url %> " />
       </div>
       <div>
-        <%= @post.comments.count %>
+        <br>
+        <span class="badge badge-info"> <%= "#{@post.title} have #{ @post.comments.count} comments" %></span>
+        <br>
         <%= render @post.comments %>
-        <h5>Participe here: </h5>
+        <h5> Let your review here: </h5>
         <%= render 'comments/form' %>
       </div>
     </div>
@@ -30,6 +37,7 @@
           <%= @post.title %>
         </h1>
         <p class="text-center  text-muted"> <%= @post.published_date%></p>
+        <p class="text-center  text-muted"> <%= @post.user.email%></p>
         <p class='text-justify mt-2'>
           <%= @post.body %>
         </p>

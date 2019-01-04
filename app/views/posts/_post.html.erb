@@ -4,7 +4,7 @@
             <div class="card-topper"> </div>
             <div class="card-block">
                 <h4 class="card-title"><%= link_to post.title, post %></h4>
-                <p class="published-date text-muted"><%= post.published_date%></p>
+                <p class="published-date text-muted"><%= post.published_date%> </p>
                 <p class="card-text"> <%= post.body.truncate(250) %></p>
                 <%= link_to "Read", post, class: "btn btn-read" %>
             </div>

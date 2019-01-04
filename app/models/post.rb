@@ -1,6 +1,12 @@
 class Post < ApplicationRecord
+  belongs_to :user
   has_many :comments
-  
+
+  validates :body, presence: true, length: { minimum: 250 }
+	validates :title, presence: true
+	validates :banner_image_url, presence: true
+
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
