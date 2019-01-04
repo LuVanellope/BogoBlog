@@ -1,9 +1,9 @@
 <% provide(:page_title, @post.title)%>
-<p id="notice"><%= notice %></p>
+<p id='notice'><%= notice %></p>
 
-<div class="container p-3">
-  <div class="row">
-    <div class="col-12 text-center">
+<div class='container p-3'>
+  <div class='row'>
+    <div class='col-12 text-center'>
       <% if user_signed_in? == @post.user_id %>
         <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-btn' %> |
         <%= link_to 'Delete', method: :destroy, class:'btn btn-danger', data: {confirm: 'Are you sure?'} %> |
@@ -15,15 +15,15 @@
   </div>
 </div>
 
-<section class="section mt-5">
-  <div class="row">
-    <div class="col-md-6">
+<section class='section mt-5'>
+  <div class='row'>
+    <div class='col-md-6'>
       <div>
-        <img alt="Imgane" class="img-fluid" src="<%= @post.banner_image_url %> " />
+        <img alt='Imgane' class='img-fluid' src='<%= @post.banner_image_url %> ' />
       </div>
       <div>
         <br>
-        <span class="badge badge-info"> <%= "#{@post.title} have #{ @post.comments.count} comments" %></span>
+        <span class='badge badge-info'> <%= "#{@post.title} have #{ @post.comments.count} comments" %></span>
         <br>
         <%= render @post.comments %>
         <h5> Let your review here: </h5>
@@ -31,13 +31,13 @@
       </div>
     </div>
 
-    <div class="col-md-6 ml-auto">
+    <div class='col-md-6 ml-auto'>
       <div>
         <h1 class='text-center'>
           <%= @post.title %>
         </h1>
-        <p class="text-center  text-muted"> <%= @post.published_date%></p>
-        <p class="text-center  text-muted"> <%= @post.user.email%></p>
+        <p class='text-center  text-muted'> <%= @post.published_date%></p>
+        <p class='text-center  text-muted'> <%= @post.user.email%></p>
         <p class='text-justify mt-2'>
           <%= @post.body %>
         </p>

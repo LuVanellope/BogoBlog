@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class='p-3'>
   <%= form_for ([@post, @post.comments.build]) do |f| %>
     <%=f.text_area :body,  placeholder: 'priority level', class:'form-control' %>
     <br>
