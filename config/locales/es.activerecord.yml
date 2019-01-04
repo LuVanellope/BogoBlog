@@ -1,7 +1,7 @@
 es:
  activerecord:
-    attributes:
-      posts:
-       title: 'Título'
-       body: 'Contenido'
-       banner_image_url: 'URL de la imagen'
+  attributes:
+    posts:
+     title: 'Título'
+     body: 'Contenido'
+     banner_image_url: 'URL de la imagen'
