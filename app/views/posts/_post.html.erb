@@ -5,11 +5,11 @@
             <div class='card-block'>
                 <h4 class='card-title'><%= link_to post.title, post %></h4>
                 <p class='published-date text-muted'><%=  l(post.created_at, format: :long) %> </p>
-                <p class='card-text'> <%= markdown(post.body).truncate(250) %>
-                  <% if current_user.id == post.user_id %>
-                    <%= link_to 'Edit', edit_post_path(post), class:'btn btn-info btn-sm' %> |
-                    <%= link_to 'Delete', post_path(post), method: :delete, class:'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
-                  <% end %>
+                <p class='card-text'> <%= markdown(post.body.truncate(250)) %></p>
+                <% if  user_signed_in? && current_user.id == post.user_id %>
+                  <%= link_to 'Edit', edit_post_path(post), class:'btn btn-info btn-sm' %> |
+                  <%= link_to 'Delete', post_path(post), method: :delete, class:'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
+                <% end %>
                 <%= link_to 'Read', post, class: 'btn btn-secondary btn-sm' %>
             </div>
         </div>

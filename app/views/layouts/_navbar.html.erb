@@ -1,21 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class='navbar navbar-expand-lg navbar-light bg-light'>
   <%= link_to 'The Bogo Blog', root_path, class:'btn btn-btn'  %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+    <span class='navbar-toggler-icon'></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+  <div class='collapse navbar-collapse' id='navbarNav'>
+    <ul class='navbar-nav ml-auto'>
       <% if user_signed_in? %>
-        <li class="text-info"> <%= current_user.email %> </li>
-        <li class="nav-item active">
+        <li class='text-info'> <%= "In session #{current_user.email}" %> </li>
+    </ul>
+    <ul class='navbar-nav ml-auto'>
+        <li class='nav-item active'>
           <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
         </li>
       <% else %>
-        <li class="nav-item active">
-          <a class="nav-link" data-toggle="modal" data-target="#signUpModal"><span>Sign Up</span></a>
+        <li class='nav-item active'>
+          <a class='nav-link' data-toggle='modal' data-target='#signUpModal'><span>Sign Up</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#logInModal">Log In</a>
+        <li class='nav-item'>
+          <a class='nav-link' data-toggle='modal' data-target='#logInModal'>Log In</a>
         </li>
       <% end %>
     </ul>
