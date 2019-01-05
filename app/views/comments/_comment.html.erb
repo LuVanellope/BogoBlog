@@ -1,4 +1,4 @@
 <div class='text_area p-3'>
   <p class='text-muted'>Comment of  <%= comment.user.email%>  <%= time_ago_in_words(comment.created_at)%> </p>
-  <div class='shadow p-4 mb-4 bg-white'><%= comment.body %></div>
+  <div class='shadow p-4 mb-4 bg-white'> <%= markdown(comment.body) %></div>
 </div>

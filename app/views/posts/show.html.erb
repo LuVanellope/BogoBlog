@@ -4,13 +4,12 @@
 <div class='container p-3'>
   <div class='row'>
     <div class='col-12 text-center'>
-      <% if user_signed_in? == @post.user_id %>
-        <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-btn' %> |
-        <%= link_to 'Delete', method: :destroy, class:'btn btn-danger', data: {confirm: 'Are you sure?'} %> |
-        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if current_user.id == @post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post), class:'btn btn-info btn-sm' %> |
+        <%= link_to 'Delete', post_path(@post), method: :delete, class:'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
       <% end %>
 
-      <%= link_to 'Back', posts_path,  class:'btn btn-btn' %> |
+      <%= link_to 'Back', posts_path,  class:'btn btn-secondary btn-sm' %> |
     </div>
   </div>
 </div>
@@ -36,10 +35,10 @@
         <h1 class='text-center'>
           <%= @post.title %>
         </h1>
-        <p class='text-center  text-muted'> <%= @post.published_date%></p>
+        <p class='text-center text-muted'> Publicado el <%=  l(@post.created_at, format: :long) %> </p>
         <p class='text-center  text-muted'> <%= @post.user.email%></p>
         <p class='text-justify mt-2'>
-          <%= @post.body %>
+          <%= markdown(@post.body) %>
         </p>
       </div>
     </div>
