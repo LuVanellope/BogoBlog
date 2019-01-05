@@ -1,24 +1,14 @@
-# README
+# The Bogo BLog
+You can have you own post blog to published everything that you want
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Getting Starting
+Bogo Blog works with Rails 4.1 onwards.
 
-Things you may want to cover:
+You can Fork or clone the repo for modifications : git@github.com:LuVanellope/BogoBlog.git
 
-* Ruby version
+The only thing that you needed to make a post is be an  authenticate user.
 
-* System dependencies
+# Site:
 
-* Configuration
+https://bogoblog.herokuapp.com/
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
